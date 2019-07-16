@@ -6,28 +6,24 @@ Created on Fri Feb  8 12:19:07 2019
 """
 import pandas as pd
 
-
-data = pd.read_csv('/path/to/file/.csv')
+data = pd.read_csv('/Users/path/to/thefile.csv')
 
 def cleaning(data):
-    data['Col1'] = data['Col2']
+    data = pd.read_csv('/Users/path/to/thefile.csv')
+    data['column_to_remove'] = data['needed_column']
     data = data.drop(
-                  ['Columnes', 'Columnes'],
+                  ['aa'],['bbb'] [...],
                    axis=1)
-    data.to_csv('/path/to/file/.csv')
+    data.to_csv('/Users/path/to/thefile.csv')
     return
 
 # Remove all the rows w str 'N'
-def rem_n(data):
-    col = data["Col1"].str.contains("N")
-    for c in col.index:
-        if col[c]==True:
-            data = data.drop(axis=0, labels=c)
-            data.to_csv('/path/to/file/.csv')
-            return
+def remove_n(data):
+    data = data.loc[data['needed_column'] != 'N']
 
-
+    data.to_csv('/Users/path/to/thefile.csv')
+    return
 
 if __name__ == '__main__':
     cleaning(data)
-    rem_n(data)
+    remove_n(data)
