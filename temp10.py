@@ -24,6 +24,18 @@ def remove_n(data):
     data.to_csv('/Users/path/to/thefile.csv')
     return
 
+def main():
+    args = sys.argv[1:]
+
+    if not args:
+        print('usage: [--clean] file [file ...]')
+        sys.exit(1)
+
+    if args[0] == '--clean':
+        cleaning(data)
+        remove_n(data)
+
+
 if __name__ == '__main__':
-    cleaning(data)
-    remove_n(data)
+    main()
+
