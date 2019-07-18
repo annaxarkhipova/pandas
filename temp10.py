@@ -5,6 +5,7 @@ Created on Fri Feb  8 12:19:07 2019
 @author: annaarkx
 """
 import pandas as pd
+import sys 
 
 data = pd.read_csv('/Users/path/to/thefile.csv')
 
@@ -14,11 +15,8 @@ def cleaning(data):
     data = data.drop(
                   ['aa'],['bbb'] [...],
                    axis=1)
-    data.to_csv('/Users/path/to/thefile.csv')
-    return
-
-# Remove all the rows w str 'N'
-def remove_n(data):
+  
+    # Remove all the rows w str 'N'
     data = data.loc[data['needed_column'] != 'N']
 
     data.to_csv('/Users/path/to/thefile.csv')
@@ -33,7 +31,7 @@ def main():
 
     if args[0] == '--clean':
         cleaning(data)
-        remove_n(data)
+        
 
 
 if __name__ == '__main__':
